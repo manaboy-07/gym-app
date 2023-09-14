@@ -3,9 +3,17 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Icon from "../assets/icons/gym.png";
-const BodyPart = (item, setBodyPart, bodyPart) => {
+const BodyPart = ({ item, setBodyPart, bodyPart }) => {
   return (
     <Stack
+      onClick={() => {
+        setBodyPart(item);
+        window.scrollTo({
+          top: 1800,
+          left: 100,
+          behavior: "smooth",
+        });
+      }}
       type='button'
       alignItems='center'
       justifyContent={"center"}
@@ -27,6 +35,13 @@ const BodyPart = (item, setBodyPart, bodyPart) => {
           height: "40px",
         }}
       />
+      <Typography
+        fontSize='24px'
+        fontWeight={"bold"}
+        color='#3a1212'
+        textTransform={"capitalize"}>
+        {item}
+      </Typography>
     </Stack>
   );
 };
